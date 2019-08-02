@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Sales\Controller\Adminhtml\Order\Invoice\PrintAction"
+                type="Netzexpert\CustomPdf\Controller\Adminhtml\Invoice\PrintAction" />
+
+    <preference for="Magento\Sales\Model\Order\Pdf\Invoice"
+                type="Netzexpert\CustomPdf\Model\Order\Pdf\Invoice" />
+</config>
