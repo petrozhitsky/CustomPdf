@@ -512,7 +512,7 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
             $invoiceExtensions = $invoice->getExtensionAttributes();
             if (method_exists($invoiceExtensions, 'getOdooCustomerId')) {
                 $odooCustomerId = $invoiceExtensions->getOdooCustomerId();
-                $page->drawText( $odooCustomerId->getData('odoo_customer_id'), 380, 484, 'UTF-8');
+                $page->drawText($odooCustomerId, 380, 484, 'UTF-8');
             }
 
             /* Add table */
@@ -534,8 +534,10 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
             if ($invoice->getStoreId()) {
                 $this->_localeResolver->revert();
             }
+
+            $this->commonPdf->insertFooter($page);
         }
-        $this->commonPdf->insertFooter($page);
+        /*$this->commonPdf->insertFooter($page);*/
         $this->_afterGetPdf();
         return $pdf;
     }
