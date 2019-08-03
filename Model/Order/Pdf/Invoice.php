@@ -365,7 +365,7 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
     private function insertPaymentAndShipment($page, $obj, $invoice)
     {
         $page->drawText(__('Payment Method: '), 39, $this->y, 'UTF-8');
-        $page->drawText(__('Shipping Method: '), 39, $this->y - 15, 'UTF-8');
+        $page->drawText(__('Shipping Method: '), 39, $this->y - 25, 'UTF-8');
         $this->_setFontRegular($page, 9);
 
         if ($obj instanceof \Magento\Sales\Model\Order) {
@@ -419,7 +419,7 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
             $this->y -= 15;
 
             foreach ($this->string->split($shippingMethod, 45, true, true) as $_value) {
-                $page->drawText(strip_tags(trim($_value)), 140, $this->y, 'UTF-8');
+                $page->drawText(strip_tags(trim($_value)), 140, $this->y - 10, 'UTF-8');
                 $this->y -= 15;
             }
 
@@ -431,7 +431,7 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
                 . $order->formatPriceTxt($order->getShippingAmount())
                 . ")";
 
-            $page->drawText($totalShippingChargesText, 140, $yShipments - $topMargin + 20, 'UTF-8');
+            $page->drawText($totalShippingChargesText, 140, $yShipments - $topMargin + 10, 'UTF-8');
             $yShipments -= $topMargin + 10;
 
             $tracks = [];
