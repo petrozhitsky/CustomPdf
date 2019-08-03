@@ -507,12 +507,12 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
             /* Add document text and number */
             /*$this->insertDocumentNumber($page, __('Invoice # ') . $invoice->getIncrementId());*/
             $page->drawText(__('Invoice # ') . $invoice->getIncrementId(), 310, 494, 'UTF-8');
-            $page->drawText(__('Customer # '), 310, 484, 'UTF-8');
+            $page->drawText(__('Kundenummer # '), 310, 484, 'UTF-8');
 
             $invoiceExtensions = $invoice->getExtensionAttributes();
             if (method_exists($invoiceExtensions, 'getOdooCustomerId')) {
                 $odooCustomerId = $invoiceExtensions->getOdooCustomerId();
-                $page->drawText($odooCustomerId->getData('odoo_customer_id'), 350, 484, 'UTF-8');
+                $page->drawText( $odooCustomerId->getData('odoo_customer_id'), 380, 484, 'UTF-8');
             }
 
             /* Add table */
